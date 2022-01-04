@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/my.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
+    <title>GCV-Calculator</title>
+</head>
+<body>
+    <h1>GCV-Calculator</h1>
+
+    <div class="container">
+
+
+       <p> 
+           <select name="moisture" id="moisture" onchange="changeForm(this.selectedIndex);">
+                <option selected="true" disabled="disabled">Select Moisture</option>    
+                <option value="lt2">Moisture less than 2</option>
+                <option value="gt2">Moisture 2 or more than 2</option>
+            </select>
+       </p>
+
+       <div id="form1" hidden>
+           <form>
+               <p><input type="number" step="0.01" id="fc" placeholder="Enter Fixed Carbon (FC)"></p>
+               <p><input type="number" step="0.01" id="vm" placeholder="Enter Volatile Matter (VM)"></p>
+               <p><input type="number" step="0.01" id="ash" placeholder="Enter Ash (A)"></p>
+               <p><input type="number" step="0.01" id="moisture" placeholder="Enter Moisture (M)"></p>
+
+               <p><button>calculate</button></p>
+
+               
+
+           </form>
+
+       </div>
+
+       <div id="form2" hidden>
+        <form>
+            <p><input type="number" step="0.01" id="ash" placeholder="Enter Ash (A)"></p>
+            <p><input type="number" step="0.01" id="moisture" placeholder="Enter Moisture (M)"></p>
+
+            <p><button>calculate</button></p>
+
+            
+
+        </form>
+
+    </div>
+       
+
+
+    </div>
+    
+
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
