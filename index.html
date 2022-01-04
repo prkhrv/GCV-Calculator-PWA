@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>GCV-Calculator</title>
 </head>
 <body>
@@ -25,13 +26,13 @@
        </p>
 
        <div id="form1" hidden>
-           <form>
-               <p><input type="number" step="0.01" id="fc" placeholder="Enter Fixed Carbon (FC)"></p>
-               <p><input type="number" step="0.01" id="vm" placeholder="Enter Volatile Matter (VM)"></p>
-               <p><input type="number" step="0.01" id="ash" placeholder="Enter Ash (A)"></p>
-               <p><input type="number" step="0.01" id="moisture" placeholder="Enter Moisture (M)"></p>
+           <form onsubmit="event.preventDefault(); calcForm1();">
+               <p><input type="number" step="0.01" id="fc" placeholder="Enter Fixed Carbon (FC)" required></p>
+               <p><input type="number" step="0.01" id="vm" placeholder="Enter Volatile Matter (VM)" required></p>
+               <p><input type="number" step="0.01" id="ash" placeholder="Enter Ash (A)" required></p>
+               <p><input type="number" step="0.01" id="moisture1" placeholder="Enter Moisture (M)" required></p>
 
-               <p><button>calculate</button></p>
+               <p><button class="btn">Calculate</button></p>
 
                
 
@@ -40,21 +41,41 @@
        </div>
 
        <div id="form2" hidden>
-        <form>
-            <p><input type="number" step="0.01" id="ash" placeholder="Enter Ash (A)"></p>
-            <p><input type="number" step="0.01" id="moisture" placeholder="Enter Moisture (M)"></p>
+        <form onsubmit="event.preventDefault(); calcForm2();">
+            <p><input type="number" step="0.01" id="ash2" placeholder="Enter Ash (A)" required></p>
+            <p><input type="number" step="0.01" id="moisture2" placeholder="Enter Moisture (M)" required></p>
 
-            <p><button>calculate</button></p>
+            <p><button class="btn">Calculate</button></p>
 
             
 
         </form>
 
-    </div>
+        </div>
+
+        <p id="gcv" hidden></p>
+
+        <div id="copyButton" class="tooltip" hidden>
+            <p><button class="btn" onclick="copyValue()" onmouseout="outFunc()">
+              <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+              Copy text <i class="fa fa-copy"></i>
+              </button></p>
+        </div>
+
+        <div id="rstButton" hidden>
+            <p><button class="btn" onclick="restart()">
+              Restart <i class="fa fa-refresh" aria-hidden="true"></i>
+              </button></p>
+        </div>
        
 
 
     </div>
+
+
+
+    <h4>Designed and developed by <span> <a href="https://prkhrv.github.io/">Prakhar Varshney</a> </span></h4>
+
     
 
 
