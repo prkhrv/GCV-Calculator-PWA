@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="./manifest.json">
     <title>GCV-Calculator</title>
 </head>
 <body>
@@ -76,9 +77,15 @@
 
     <h4>Designed and developed by <span> <a href="https://prkhrv.github.io/">Prakhar Varshney</a> </span></h4>
 
-    
 
-
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./sw.js')
+            .then(function() {
+                  console.log('Service Worker Registered');
+            });
+        }
+    </script>
     <script src="./js/index.js"></script>
 </body>
 </html>
